@@ -14,8 +14,10 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        // Base URL of the REST API used by ApiClient
-        buildConfigField("String", "BASE_URL", "\"https://dummy.restapiexample.com/api/v1/\"")
+        // Base URL of the REST API used by ApiClient.
+        // 10.0.2.2 is the emulator's address for the computer running backend/ (npm start).
+        // Original public API: https://dummy.restapiexample.com/api/v1/
+        buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:3000/api/v1/\"")
     }
 
     buildTypes {
