@@ -13,6 +13,9 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+
+        // Base URL of the REST API used by ApiClient
+        buildConfigField("String", "BASE_URL", "\"https://dummy.restapiexample.com/api/v1/\"")
     }
 
     buildTypes {
@@ -33,6 +36,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 

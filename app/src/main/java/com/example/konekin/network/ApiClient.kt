@@ -1,5 +1,6 @@
 package com.example.konekin.network
 
+import com.example.konekin.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,7 +18,7 @@ object ApiClient {
             .build()
 
         val builder = Retrofit.Builder()
-            .baseUrl("https://dummy.restapiexample.com/api/v1/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(mOkHttpClient)
             .build()
