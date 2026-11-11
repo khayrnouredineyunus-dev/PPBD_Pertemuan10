@@ -20,6 +20,9 @@
         <activity
             android:name=".UserDetailActivity"
             android:exported="false" />
+        <activity
+            android:name=".UserFormActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
