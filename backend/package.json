@@ -1,0 +1,16 @@
+{
+  "name": "konekin-backend",
+  "version": "1.0.0",
+  "description": "Self-hosted employee REST API with the same contract as dummy.restapiexample.com",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
