@@ -21,13 +21,30 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnTambah.setOnClickListener {
+            startActivity(Intent(this, UserFormActivity::class.java))
+        }
+    }
+
+    // Reload every time the page is shown, so added, edited, or deleted users appear
+    override fun onResume() {
+        super.onResume()
+        loadUsers()
+    }
+
+    private fun loadUsers() {
         val client = ApiClient.getInstance()
         val response = client.getAllUsers()
         val userList = ArrayList<String>()
 
         response.enqueue(object : Callback<Users> {
             override fun onResponse(call: Call<Users>, response: Response<Users>) {
-                val dataList = response.body()!!.data
+                val body = response.body()
+                if (!response.isSuccessful || body == null) {
+                    Toast.makeText(this@MainActivity, "Gagal memuat data (${response.code()})", Toast.LENGTH_LONG).show()
+                    return
+                }
+                val dataList = body.data
                 for (i in dataList) {
                     userList.add(i.employeeName)
                 }
